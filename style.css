@@ -1,0 +1,383 @@
+:root {
+    --bg-color: #f3f4f6;
+    --panel-bg: rgba(255, 255, 255, 0.85);
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #e0e7ff 0%, #ede9fe 100%);
+    min-height: 100vh;
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    max-height: 800px;
+    background: var(--panel-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+/* Form Panel */
+.form-panel {
+    width: 40%;
+    padding: 2.5rem;
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
+    background: rgba(255,255,255,0.6);
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #374151;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    background: #f9fafb;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    background: #fff;
+}
+
+.theme-selector {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.theme-btn {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.theme-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn.primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn.primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn.secondary {
+    background: white;
+    color: var(--text-main);
+    border: 1px solid var(--border);
+}
+
+.btn.secondary:hover {
+    background: #f3f4f6;
+}
+
+/* Preview Panel */
+.preview-panel {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle at center, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.preview-header {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.preview-header h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.card-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Business Card Base Style (85x54mm ratio approx 1050x600 px, scaled down) */
+.business-card {
+    width: 500px;
+    height: 318px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card-front {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Theme: Classic */
+.theme-classic {
+    background: #ffffff;
+    color: #1a1a1a;
+    border-top: 6px solid var(--primary);
+}
+.theme-classic .card-brand h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.theme-classic .card-main h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+.theme-classic .card-main p {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+}
+.theme-classic .card-contact {
+    font-size: 0.85rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    color: #444;
+}
+.theme-classic .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.theme-classic .contact-item i {
+    color: var(--primary);
+    width: 16px;
+}
+.theme-classic .social {
+    grid-column: span 2;
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Theme: Modern */
+.theme-modern {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #f8fafc;
+}
+.theme-modern .card-front {
+    padding: 2.5rem;
+    position: relative;
+    z-index: 2;
+}
+.theme-modern::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: #38bdf8;
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: 1;
+}
+.theme-modern .card-brand h2 {
+    font-size: 1.1rem;
+    color: #38bdf8;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.theme-modern .card-main h1 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 0.3rem;
+}
+.theme-modern .card-main p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.theme-modern .card-contact {
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.theme-modern .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.theme-modern .contact-item i {
+    color: #38bdf8;
+}
+.theme-modern .social {
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Theme: Dark */
+.theme-dark {
+    background: #121212;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+.theme-dark .card-front {
+    border-left: 8px solid #ef4444;
+}
+.theme-dark .card-brand h2 {
+    font-size: 1.25rem;
+    font-family: monospace;
+    color: #ef4444;
+}
+.theme-dark .card-main h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+}
+.theme-dark .card-main p {
+    font-size: 1rem;
+    color: #999;
+}
+.theme-dark .card-contact {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+.theme-dark .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.theme-dark .contact-item i {
+    color: #ef4444;
+}
+.theme-dark .social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .app-container {
+        flex-direction: column;
+        height: auto;
+        max-height: none;
+        overflow-y: auto;
+    }
+    .form-panel, .preview-panel {
+        width: 100%;
+        border-right: none;
+    }
+    .preview-panel {
+        padding-bottom: 2rem;
+    }
+}
+@media (max-width: 600px) {
+    .business-card {
+        transform: scale(0.65);
+    }
+}
