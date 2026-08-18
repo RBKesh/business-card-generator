@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Card Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- html2canvas CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Panel: Form -->
+        <div class="form-panel">
+            <div class="header">
+                <h1>Business Card Gen <i class="fa-solid fa-address-card"></i></h1>
+                <p>Fill out the details to generate your card.</p>
+            </div>
+            
+            <form id="card-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="John Doe" value="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="jobTitle">Job Title</label>
+                    <input type="text" id="jobTitle" placeholder="Software Engineer" value="Software Engineer">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" placeholder="Tech Innovations Inc." value="Tech Innovations Inc.">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="john@example.com" value="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" placeholder="+1 (555) 012-3456" value="+1 (555) 012-3456">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="text" id="website" placeholder="www.johndoe.com" value="www.johndoe.com">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn Handle</label>
+                        <input type="text" id="linkedin" placeholder="johndoe" value="johndoe">
+                    </div>
+                    <div class="form-group">
+                        <label for="twitter">Twitter Handle</label>
+                        <input type="text" id="twitter" placeholder="@johndoe" value="@johndoe">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Theme</label>
+                    <div class="theme-selector">
+                        <button type="button" class="theme-btn active" data-theme="classic">Classic</button>
+                        <button type="button" class="theme-btn" data-theme="modern">Modern</button>
+                        <button type="button" class="theme-btn" data-theme="dark">Dark</button>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="button" id="downloadBtn" class="btn primary"><i class="fa-solid fa-download"></i> Download PNG</button>
+                    <button type="button" id="printBtn" class="btn secondary"><i class="fa-solid fa-print"></i> Print</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Right Panel: Live Preview -->
+        <div class="preview-panel">
+            <div class="preview-header">
+                <h2>Live Preview</h2>
+            </div>
+            <div class="card-wrapper">
+                <div id="business-card" class="business-card theme-classic">
+                    <div class="card-front">
+                        <div class="card-brand">
+                            <h2 id="card-company">Tech Innovations Inc.</h2>
+                        </div>
+                        <div class="card-main">
+                            <h1 id="card-name">John Doe</h1>
+                            <p id="card-title">Software Engineer</p>
+                        </div>
+                        <div class="card-contact">
+                            <div class="contact-item">
+                                <i class="fa-solid fa-phone"></i>
+                                <span id="card-phone">+1 (555) 012-3456</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span id="card-email">john@example.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fa-solid fa-globe"></i>
+                                <span id="card-website">www.johndoe.com</span>
+                            </div>
+                            <div class="contact-item social">
+                                <span><i class="fa-brands fa-linkedin"></i> <span id="card-linkedin">johndoe</span></span>
+                                <span><i class="fa-brands fa-twitter"></i> <span id="card-twitter">@johndoe</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
